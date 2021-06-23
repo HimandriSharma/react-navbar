@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import Component1 from './Components/com1';
+import Component2 from './Components/com2';
+import Home from './Components/home';
 
+const showComp1 = () => {
+  if(window.location.pathname==="/component1")
+    return <Component1/>
+}
+const showComp2 = () => {
+  if(window.location.pathname==="/component2")
+    return <Component2/>
+}
+const home = () => {
+  if(window.location.pathname==="/")
+    return <Home/>
+}
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div>
+     <nav>
+       <ul>
+         <li>
+         <a href="/component1">Component 1</a>
+         </li>
+         <li>
+           <a href="/component2">Component 2</a>
+         </li>
+       </ul>
+     </nav>
+     <div>
+       {home()}
+       {showComp1()}
+       {showComp2()}
+     </div>
+   </div>
   );
 }
 
